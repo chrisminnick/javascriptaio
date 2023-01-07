@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Number with a do . . . while Loop</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      let guessNumber = 0;
+      let numberToGuess = 71;
+      let guess;
+      do {
+        guess = Math.floor(Math.random() * 100);
+        guessNumber++;
+      } while (guess != numberToGuess);
+
+      document.getElementById('root').innerHTML = `
+      <h2>I guessed it!</h2>
+      <p>It only took me ${guessNumber} guesses!</p>`;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazing JavaScript Bookstore</title>
+  </head>
+  <body>
+    <h1>The Books</h1>
+    <div id="bookstore"></div>
+    <h1>Your Cart</h1>
+    <div id="cart"></div>
+
+    <script>
+      const bookstore = {
+        books: ['Ulysses', 'The Great Gatsby'],
+        removeBook(title) {
+          let newList = this.books.filter((book) => book != title);
+          this.books = newList;
+          this.displayBookstore();
+        },
+        displayBookstore() {
+          const renderTarget = document.getElementById('bookstore');
+          const bookList = this.books.map((book) => `<p>${book}</p>`);
+          renderTarget.innerHTML = bookList.join('');
+
+          shoppingCart.displayCart(this.removeBook.bind(this));
+        },
+      };
+
+      const shoppingCart = {
+        itemsInCart: ['The Great Gatsby'],
+        handleClick(removeBook) {
+          removeBook(this.itemsInCart);
+        },
+        displayCart(clickHandler) {
+          const renderTarget = document.getElementById('cart');
+          const itemsInCart = this.itemsInCart.map((item) => `<p>${item}</p>`);
+          const checkoutButton = "<button id='checkout'>Check Out</button>";
+
+          renderTarget.innerHTML = itemsInCart.join('') + checkoutButton;
+          document
+            .getElementById('checkout')
+            .addEventListener('click', () => this.handleClick(clickHandler));
+        },
+      };
+
+      bookstore.displayBookstore();
+    </script>
+  </body>
+</html>
