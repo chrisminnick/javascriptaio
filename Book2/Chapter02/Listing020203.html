@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>To Do List</title>
+  </head>
+  <body>
+    <h1>Things I gotta do</h1>
+    <ul id="toDoList"></ul>
+    <input type="text" id="itemToAdd" />
+    <button id="add">Add Item</button>
+    <script>
+      document.getElementById('add').addEventListener('click', addItem);
+
+      function addItem() {
+        let itemInput = document.getElementById('itemToAdd');
+        let toDoList = document.getElementById('toDoList');
+
+        let newItem = document.createElement('li');
+        newItem.innerHTML = itemInput.value;
+
+        toDoList.append(newItem);
+        itemInput.value = '';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Make Guacamole</title>
+  </head>
+  <body>
+    <h1>Ingredients</h1>
+    <ul id="guacIngredients">
+      <li class="ingredient">Avocados: $2 each</li>
+      <li class="ingredient">Onions: $1 each</li>
+      <li class="ingredient">Serrano peppers: $3/lb</li>
+      <li class="ingredient">Cilantro: $1.50/bunch</li>
+    </ul>
+
+    <button id="reverse">Reverse List Order</button>
+    <script>
+      document
+        .getElementById('reverse')
+        .addEventListener('click', reverseOrder);
+
+      function reverseOrder() {
+        let ingredientsList = document.getElementById('guacIngredients');
+        let ingredients = document.querySelectorAll('.ingredient');
+        let ingredientsArray = Array.from(ingredients);
+        ingredientsArray.reverse();
+        ingredientsList.innerHTML = '';
+        ingredientsList.append(...ingredientsArray);
+      }
+    </script>
+  </body>
+</html>

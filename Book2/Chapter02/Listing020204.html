@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>JavaScript Routing</title>
+  </head>
+  <body>
+    <h1>What do you want to see?</h1>
+    <nav id="navigation">
+      <button id="page1">Page 1</button>
+      <button id="page2">Page 2</button>
+      <button id="page3">Page 3</button>
+    </nav>
+    <div id="main"></div>
+    <script>
+      let pageText = 'Welcome. Click a button.';
+
+      document
+        .getElementById('navigation')
+        .addEventListener('click', changeRoute);
+
+      function changeRoute(e) {
+        let requestedRoute = e.target.id;
+        history.pushState({}, '', requestedRoute);
+        route();
+      }
+
+      function route() {
+        let currentRoute = location.pathname;
+
+        function getLastURLSegment(path) {
+          return path.substring(path.lastIndexOf('/') + 1);
+        }
+
+        currentRoute = getLastURLSegment(currentRoute);
+
+        switch (currentRoute) {
+          case 'page1':
+            pageText = 'This is page 1';
+            break;
+          case 'page2':
+            pageText = 'This is page 2';
+            break;
+          case 'page3':
+            pageText = 'This is page 3';
+            break;
+          default:
+            pageText = 'Route not found.';
+        }
+
+        document.getElementById('main').innerHTML = pageText;
+      }
+    </script>
+  </body>
+</html>

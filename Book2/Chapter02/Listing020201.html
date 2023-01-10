@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>Today's date</title>
+  </head>
+  <body>
+    <h1>Here's the current date</h1>
+    <h2 id="dateToday">calculating the date...</h2>
+    <script>
+      setTimeout(() => {
+        document.getElementById('dateToday').innerHTML = new Date();
+      }, 1000);
+    </script>
+  </body>
+</html>
