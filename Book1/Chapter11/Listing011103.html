@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+  </head>
+  <body>
+    <h1 id="status"></h1>
+    <label
+      >Username
+      <input id="username" type="text" />
+    </label>
+    <label
+      >Password
+      <input id="password" type="password" />
+    </label>
+    <button id="login">Log In</button>
+    <script>
+      const username = document.getElementById('username');
+      const password = document.getElementById('password');
+      const loginBtn = document.getElementById('login');
+      const statusMsg = document.getElementById('status');
+      loginBtn.addEventListener('click', doLogin);
+
+      function doLogin() {
+        statusMsg.innerHTML = `logging in ${username.value}. . .`;
+      }
+    </script>
+  </body>
+</html>
