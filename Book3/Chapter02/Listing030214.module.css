@@ -1,0 +1,11 @@
+.paragraph {
+    font-size: 16px;
+    font-family: Georgia serif;
+    color: #333;
+    text-indent: 25px;
+  }
+  .redParagraph {
+    composes: paragraph;
+    color: red;
+  }
+  
