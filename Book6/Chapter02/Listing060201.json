@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve --mode development --open",
+    "prebuild": "rm -rf dist",
+    "build": "webpack --mode production",
+    "postbuild": "cp public/index.html dist/index.html && cp -R public/css dist/css"
+  }
+}

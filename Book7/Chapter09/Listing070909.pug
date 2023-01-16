@@ -1,0 +1,11 @@
+doctype html
+html(lang="en")
+  head
+    title= "My App"
+  body
+    h1 Welcome to the app
+    #container.col
+      if loggedIn
+        p Congratulations!
+      else
+        p Please log in to continue

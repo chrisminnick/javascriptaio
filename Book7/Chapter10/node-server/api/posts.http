@@ -1,0 +1,38 @@
+POST http://localhost:3000/api/posts HTTP/1.1
+content-type: application/json
+Authorization: Bearer [token here]
+
+{
+    "text": "test post 1"
+}
+
+###
+
+GET http://localhost:3000/api/posts HTTP/1.1
+content-type: application/json
+Authorization: Bearer [token here]
+
+###
+
+GET http://localhost:3000/api/posts/636683b6b7a919666cf935cd HTTP/1.1
+content-type: application/json
+Authorization: Bearer [token here]
+
+###
+
+PUT http://localhost:3000/api/posts/636683b6b7a919666cf935cd HTTP/1.1
+content-type: application/json
+Authorization: Bearer [token here]
+
+{
+    "id": "636683b6b7a919666cf935cd",
+    "text": "test"
+}
+
+###
+
+DELETE http://localhost:3000/api/posts/636685ba0b87a4fc0343c90d HTTP/1.1
+content-type: application/json
+Authorization: Bearer [token here]
+
+###

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "firstName": "Carmen",
+    "lastName": "Jones",
+    "address": "715 Werniger Street",
+    "city": "Houston",
+    "state": "TX",
+    "zip": "77002"
+  },
+  {
+    "id": 2,
+    "firstName": "Albert",
+    "lastName": "Jones",
+    "address": "4078 Oak Lane",
+    "city": "Moberly",
+    "state": "MO",
+    "zip": "65270"
+  },
+  {
+    "id": 3,
+    "firstName": "Gregory",
+    "lastName": "Gregg",
+    "address": "1234 Main Street",
+    "city": "Adairsville",
+    "state": "GA",
+    "zip": "30103"
+  }
+]

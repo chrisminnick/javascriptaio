@@ -1,0 +1,15 @@
+{
+  "name": "chapter01",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Listing0107.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.2"
+  }
+}

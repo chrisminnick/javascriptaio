@@ -1,0 +1,18 @@
+GET http://localhost:3000/users
+
+###
+
+GET http://localhost:3000/users/c97751dd-7d4f-4890-aa80-a7ba81bcd3f3
+###
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "jdoe@example.com"
+}
+
+###
+
+GET http://localhost:3000 // 404 Error
