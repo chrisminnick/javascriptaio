@@ -1,10 +1,10 @@
 <script>
   import { onDestroy } from 'svelte';
-  import { my_store } from './store.js';
+  import { myStore } from './store.js';
 
   let storeValue;
 
-  const unsubscribe = my_store.subscribe((value) => {
+  const unsubscribe = myStore.subscribe((value) => {
     storeValue = value;
   });
 

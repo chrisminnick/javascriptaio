@@ -1,5 +1,8 @@
 <script>
-  import Listing0611 from './Listing0611.svelte';
+  import { setContext } from 'svelte';
+  import { userprefs } from './stores/userprefs.js';
+  import EditPrefs from './EditPrefs.svelte';
+  setContext('userprefs', userprefs);
 </script>
 
-<Listing0611 />
+<EditPrefs />

@@ -1,13 +1,13 @@
 <script>
-  import { fade } from 'svelte/transition';
+  import { fade, scale } from 'svelte/transition';
   let visible = true;
 </script>
 
-<button on:click={() => (visible = !visible)}> Toggle </button>
+<button on:click={() => (visible = !visible)}>Toggle</button>
 
 {#if visible}
-  <div transition:fade={{ duration: 2000, delay: 1000 }}>
+  <div out:fade in:scale>
     <h1>Transition Test</h1>
-    <p>This is a test of the transition directive.</p>
+    <p>This is a test of the in and out directives.</p>
   </div>
 {/if}

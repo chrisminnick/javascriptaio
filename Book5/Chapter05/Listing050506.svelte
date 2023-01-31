@@ -1,4 +1,3 @@
-<script>
   onMount(() => {
     const timer = setInterval(() => getLatestStockPrice(), 60000);
     return () => {
@@ -20,4 +19,3 @@
       stockPriceChangeDirectionClass = 'stock-price-up';
     }
   }
-</script>
