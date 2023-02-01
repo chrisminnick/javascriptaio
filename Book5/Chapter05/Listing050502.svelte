@@ -2,7 +2,7 @@
   import { beforeUpdate, afterUpdate } from 'svelte';
   let count = 0;
   beforeUpdate(() => {
-    console.log(`the count was ${count}`);
+    console.log(`Preparing to update...`);
   });
   afterUpdate(() => {
     console.log(`the count is now ${count}`);

@@ -32,3 +32,6 @@
   </select>
   <button type="submit">Update</button>
 </form>
+
+Current Preferences: {$userprefs.language}
+{$userprefs.theme}

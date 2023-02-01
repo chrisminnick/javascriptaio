@@ -1,9 +1,9 @@
 <script>
-  import { my_store } from './store.js';
+  import { myStore } from './store.js';
 
   let store;
 
-  my_store.subscribe((value) => {
+  myStore.subscribe((value) => {
     store = value;
   });
 </script>
