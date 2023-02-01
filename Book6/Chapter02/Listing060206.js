@@ -9,7 +9,7 @@ function App() {
 }
 
 function Map({ children }) {
-  return { children };
+  return children;
 }
 
 function Ball() {
