@@ -1,17 +1,54 @@
-useEffect(() => {
-  const ball = document.getElementById('ball');
-  const ballPosition = ball.getBoundingClientRect();
-  const obstacles = document.getElementsByClassName('obstacle');
-  for (let i = 0; i < obstacles.length; i++) {
-    const obstaclePosition = obstacles[i].getBoundingClientRect();
-    if (
-      ballPosition.x < obstaclePosition.x + obstaclePosition.width &&
-      ballPosition.x + ballPosition.width > obstaclePosition.x &&
-      ballPosition.y < obstaclePosition.y + obstaclePosition.height &&
-      ballPosition.y + ballPosition.height > obstaclePosition.y
-    ) {
-      alert('Game Over');
-      setPosition({ x: 0, y: 0 });
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const numberOfObstacles = 100;
+  return (
+    <Map numberOfObstacles={numberOfObstacles}>
+      <Ball />
+    </Map>
+  );
+}
+
+function Map({ children, numberOfObstacles }) {
+  const [obstacles, setObstacles] = useState([]);
+
+  useEffect(() => {
+    const map = generateMap(numberOfObstacles);
+    setObstacles(map);
+  }, []);
+
+  const obstaclePositions = Array(numberOfObstacles)
+    .fill()
+    .map(() => {
+      const x = Math.floor(Math.random() * 100) + 'vw';
+      const y = Math.floor(Math.random() * 100) + 'vh';
+      return { left: x, top: y };
+    });
+
+  const generateMap = (numberOfObstacles) => {
+    const obstacles = [];
+    for (let i = 0; i < numberOfObstacles; i++) {
+      obstacles[i] = (
+        <Obstacle obstaclePosition={obstaclePositions[i]} key={i} />
+      );
     }
-  }
-}, [position]);
+    return obstacles;
+  };
+
+  return (
+    <>
+      {obstacles}
+      {children}
+    </>
+  );
+}
+
+function Ball() {
+  return <div id="ball"></div>;
+}
+
+function Obstacle({ obstaclePosition }) {
+  return <div className="obstacle" style={obstaclePosition}></div>;
+}
+
+export default App;

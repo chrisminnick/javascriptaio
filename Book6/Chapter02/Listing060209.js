@@ -1,24 +1,17 @@
-function detectEdgeCollision() {
+useEffect(() => {
   const ball = document.getElementById('ball');
   const ballPosition = ball.getBoundingClientRect();
-  if (ballPosition.x < 0) {
-    setPosition((prev) => {
-      return { x: prev.x + 1, y: prev.y };
-    });
+  const obstacles = document.getElementsByClassName('obstacle');
+  for (let i = 0; i < obstacles.length; i++) {
+    const obstaclePosition = obstacles[i].getBoundingClientRect();
+    if (
+      ballPosition.x < obstaclePosition.x + obstaclePosition.width &&
+      ballPosition.x + ballPosition.width > obstaclePosition.x &&
+      ballPosition.y < obstaclePosition.y + obstaclePosition.height &&
+      ballPosition.y + ballPosition.height > obstaclePosition.y
+    ) {
+      alert('Game Over');
+      setPosition({ x: 0, y: 0 });
+    }
   }
-  if (ballPosition.x + ballPosition.width > window.innerWidth) {
-    setPosition((prev) => {
-      return { x: prev.x - 1, y: prev.y };
-    });
-  }
-  if (ballPosition.y < 0) {
-    setPosition((prev) => {
-      return { x: prev.x, y: prev.y + 1 };
-    });
-  }
-  if (ballPosition.y + ballPosition.height > window.innerHeight) {
-    setPosition((prev) => {
-      return { x: prev.x, y: prev.y - 1 };
-    });
-  }
-}
+}, [position]);

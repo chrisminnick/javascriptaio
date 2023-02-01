@@ -1,19 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-function App() {
-  return (
-    <Map>
-      <Ball />
-    </Map>
-  );
-}
-
-function Map({ children }) {
-  return { children };
-}
-
-function Ball() {
-  return <div id="ball"></div>;
-}
-
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('map'));
+root.render(<App />);
