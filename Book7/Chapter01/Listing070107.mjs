@@ -23,7 +23,7 @@ function triangleMaker(size) {
   };
 }
 
-const { area, perimeter, triangle } = triangleMaker(4);
+const { area, perimeter, triangle } = triangleMaker(18);
 console.log(`Area: ${area}`);
 console.log(`Perimeter: ${perimeter}`);
 console.log(triangle.join('\n'));

@@ -1,15 +1,23 @@
 import express from 'express';
+import { Router } from 'express';
+const customerRouter = Router();
+const productRouter = Router();
+
 const app = express();
 const port = 3000;
 
-app.get('/time', (req, res, next) => {
-  res.currentTime = new Date();
+customerRouter.get('/', (req, res, next) => {
+  res.send('Customer list');
   next();
 });
 
-app.get('/time', (req, res) => {
-  res.send(`Hello World! The time is ${res.currentTime}.`);
+productRouter.get('/', (req, res, next) => {
+  res.send('Product list');
+  next();
 });
+
+app.use('/customers', customerRouter);
+app.use('/products', productRouter);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}.`);

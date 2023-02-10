@@ -1,22 +1,6 @@
 function asyncTask(param1, param2, callback) {
   // do something asynchronous
   if (error) {
-    if (callback) {
-      callback(new Error("oops. There's been an error"));
-    }
-    return Promise.reject(new Error("oops. There's been an error"));
-  }
-  // do something else if there's no error
-  if (callback) {
-    callback(null, result);
-  }
-  return Promise.resolve(result);
-}
-
-function asyncTask(param1, param2, callback) {
-  // do something asynchronous
-
-  if (error) {
     // if a callback is passed, call it with the error
     if (callback) {
       callback(new Error("oops. There's been an error"));
