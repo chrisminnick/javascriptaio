@@ -14,9 +14,10 @@ function generateAccessToken(username) {
   });
 }
 
-router.post('/signup', (req, res) => {
-  User.findOne({ email: req.body.email }, async (err, user) => {
-    if (err) throw err;
+router.post('/signup', async (req, res) => {
+  try {
+    const user = User.findOne({ email: req.body.email });
+
     if (user) {
       res.status(409).json({
         message: 'User already exists!',
@@ -34,7 +35,11 @@ router.post('/signup', (req, res) => {
         message: 'User created!',
       });
     }
-  });
+  } catch (err) {
+    res.status(500).json({
+      message: 'Internal server error',
+    });
+  }
 });
 
 router.post('/login', async (req, res) => {
