@@ -16,7 +16,7 @@ function generateAccessToken(username) {
 
 router.post('/signup', async (req, res) => {
   try {
-    const user = User.findOne({ email: req.body.email });
+    const user = await User.findOne({ email: req.body.email });
 
     if (user) {
       res.status(409).json({
